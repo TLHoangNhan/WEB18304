@@ -8,11 +8,21 @@
     <script src="app.js"></script>
   </head>
   <body>
+    <h1>Nhập số nguyên d:</h1>
+    <input type="number" id="d-input" />
+    <button onclick="calculateResult()">Tính toán</button>
     <script>
-      let d = prompt("Nhap so nguyen d");
-      Result = parseInt(c) + parseInt(d);
-      alert(Result);
-      console(Result);
+      function calculateResult() {
+        //Nhập vào số nguyên d từ bản phím
+        var d = parseInt(document.getElementById("d-input").value);
+
+        //Tính tổng result của c và d (result = c + d)
+        var result = c + d;
+
+        //In ra kết quả đồng thời bằng 2 cách
+        alert("Tổng của " + c + " và " + d + " là: " + result);
+        console.log("Tổng của " + c + " và " + d + " là: " + result);
+      }
     </script>
   </body>
 </html>
