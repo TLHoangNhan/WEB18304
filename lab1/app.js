@@ -7,4 +7,5 @@ let c = a + b;
 
 //In ra kết quả đồng thời bằng 2 cách
 document.write("Tổng của " + a + " và " + b + " là: " + c);
+
 console.log("Tổng của " + a + " và " + b + " là: " + c);
