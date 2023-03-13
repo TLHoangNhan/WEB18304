@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab2bai2</title>
+  </head>
+  <body>
+    <script>
+      //Nhập giá trị a,b,c
+      let a = parseInt(prompt("Mời nhập a"));
+      let b = parseInt(prompt("Mời nhập b"));
+      let c = parseInt(prompt("Mời nhập c"));
+      //Kiểm tra
+      if (a + b > c && b + c > a && a + c > b) {
+        if (
+          a * a == b * b + c * c ||
+          b * b == a * a + c * c ||
+          c * c == a * a + b * b
+        ) {
+          document.write("Đây là tam giác vuông");
+        } else if (a == b && b == c) {
+          document.write("Đây là tam giác cân");
+        } else {
+          document.write("Đây là tam giác thường");
+        }
+      } else {
+        document.write("Ba cạnh a,b,c không phải là ba cạnh của một tam giác");
+      }
+    </script>
+  </body>
+</html>

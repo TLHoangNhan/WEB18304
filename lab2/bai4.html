@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab2bai4</title>
+  </head>
+  <body>
+    <script>
+      // Tạo mảng ban đầu
+      let thuNgay = ["Tue", "Thu", "Sat", "Nine"];
+
+      // Thêm các phần tử mới vào mảng theo thứ tự
+      thuNgay.splice(0, 0, "Mon");
+      thuNgay.splice(2, 0, "Wed");
+      thuNgay.splice(4, 0, "Fri");
+      thuNgay.push("Sun");
+
+      // Xóa phần tử "Nine" trong mảng
+      let index = thuNgay.indexOf("Nine");
+      if (index !== -1) {
+        thuNgay.splice(index, 1);
+      }
+
+      // In mảng kết quả
+      console.log(thuNgay);
+
+      document.write("Xuất chuỗi ngaỳ trong tuần: " + thuNgay);
+    </script>
+  </body>
+</html>
