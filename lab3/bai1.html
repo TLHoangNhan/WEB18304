@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="bai1.js"></script>
+  </head>
+  <body>
+    <script>
+      let display = document.getElementById("display");
+      let buttons = document.querySelectorAll("button");
+
+      // Khai báo biến lưu trữ giá trị hiển thị và phép toán
+      let operand1 = "";
+      let operand2 = "";
+      let operator = "";
+
+      // Thêm sự kiện click cho mỗi nút
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          // Lấy giá trị của nút được nhấn
+          let value = button.getAttribute("data-value");
+
+          // Xử lý các trường hợp khác nhau
+          switch (value) {
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+              // Nếu đã có phép toán trước đó, thực hiện tính toán và lưu kết quả vào toán hạng 1
+              if (operator) {
+                operand1 = calculate(operand1, operand2, operator);
+                operand2 = "";
+              } else {
+                // Nếu chưa có phép toán trước đó, chuyển giá trị hiển thị sang toán hạng 1
+                operand1 = display.textContent;
+              }
+              // Lưu phép toán được chọn
+              operator = value;
+              // Xóa màn hình hiển thị
+              display.textContent = "";
+              break;
+            case "=":
+              // Nếu đã có phép toán trước đó, thực hiện tính toán và hiển thị kết quả
+              if (operator) {
+                operand2 = display.textContent;
+                display.textContent = calculate(operand1, operand2, operator);
+                // Đặt lại các biến về rỗng
+                operand1 = "";
+                operand2 = "";
+                operator = "";
+              }
+              break;
+            case "AC":
+              // Xóa màn hình hiển thị và đặt lại các biến về rỗng
+              display.textContent = "";
+              operand1 = "";
+              operand2 = "";
+              operator = "";
+              break;
+            default:
+              // Nếu là số hoặc dấu chấm, thêm vào màn hình hiển thị
+              display.textContent += value;
+          }
+        });
+      });
+
+      // Hàm tính toán hai toán hạng với một phép toán cho trước
+      function calculate(a, b, op) {
+        a = parseFloat(a); // Chuyển chuỗi sang số thực
+        b = parseFloat(b);
+        switch (op) {
+          case "+":
+            return a + b; // Trả về tổng hai số
+          case "-":
+            return a - b; // Trả về hiệu hai số
+          case "*":
+            return a * b; // Trả về tích hai số
+          case "/":
+            return a / b; // Trả về thương hai số
+        }
+      }
+    </script>
+  </body>
+</html>
