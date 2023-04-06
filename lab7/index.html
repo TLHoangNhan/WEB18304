@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        width: 50%;
+        background-color: antiquewhite;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+      }
+
+      .leftc {
+        width: 150px;
+        height: 250px;
+        border: 3px solid orange;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+      }
+      .item {
+        padding: 20px 20px 2px 20px;
+        border: 1px dashed black;
+        margin: 3px;
+        text-align: center;
+      }
+      .leftc.highlight {
+        background-color: lightblue;
+        border: 3px dashed blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h5>Lab 7</h5>
+      <p>Nhan</p>
+      <div class="main">
+        <div class="leftc">B</div>
+        <div class="right">
+          <span class="item" id="one">1</span>
+          <span class="item" id="two">2</span>
+          <span class="item" id="three">3</span>
+          <span class="item" id="four">4</span>
+          <span class="item" id="five">5</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Lấy tất cả các phần tử có class "item"
+      let items = document.querySelectorAll(".item");
+
+      // Lặp qua từng phần tử và thêm thuộc tính "draggable"
+      items.forEach((item) => {
+        item.setAttribute("draggable", true);
+
+        // Thêm sự kiện "dragstart" vào mỗi phần tử để lưu trữ phần tử đang được kéo
+        item.addEventListener("dragstart", (event) => {
+          event.dataTransfer.setData("text/plain", event.target.id);
+        });
+      });
+
+      // Lấy phần tử ô B và thêm sự kiện "dragover"
+      let dropzone = document.querySelector(".leftc");
+      dropzone.addEventListener("dragover", (event) => {
+        event.preventDefault(); // ngăn chặn hành động mặc định của trình duyệt
+        dropzone.classList.add("highlight");
+      });
+
+      // Xóa lớp "highlight" khi rời khỏi ô B
+      dropzone.addEventListener("dragleave", (event) => {
+        dropzone.classList.remove("highlight");
+      });
+
+      // Thêm sự kiện "drop" vào ô B để thêm phần tử được kéo vào ô B và xóa phần tử ban đầu
+      dropzone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        dropzone.classList.remove("highlight");
+
+        // Lấy ID của phần tử đang được kéo
+        let id = event.dataTransfer.getData("text/plain");
+
+        // Di chuyển phần tử đó vào ô B
+        let draggedItem = document.getElementById(id);
+        dropzone.appendChild(draggedItem);
+      });
+
+      // Thêm sự kiện "dragend" vào mỗi phần tử để reset các class CSS của ô B khi kết thúc kéo thả
+      items.forEach((item) => {
+        item.addEventListener("dragend", (event) => {
+          dropzone.classList.remove("highlight");
+        });
+      });
+    </script>
+  </body>
+</html>
