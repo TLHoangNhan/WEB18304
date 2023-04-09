@@ -35,3 +35,4 @@ const checkEmailValid = (e) => {
 const email = document.getElementById("email");
 console.log(email);
 email.addEventListener("keyup", checkEmailValid);
+

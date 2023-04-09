@@ -10,10 +10,6 @@
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
     ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
   </head>
 
   <body>
@@ -24,11 +20,12 @@
             <ion-icon name="fast-food-outline"></ion-icon>
           </div>
           <ul id="menu">
-            <li class="item">Trang Chủ</li>
-            <li class="item">Sản Phẩm</li>
-            <li class="item">Khuyến Mãi</li>
-            <li class="item">Dịch Vụ</li>
-          </ul>
+            <li class="item" > <a href="#i4">Trang Chủ</a> </li>
+            <li class="item" > <a href="#i5">HOT</a> </li>
+            <li class="item" > <a href="#i3">Sản Phẩm</a> </li>
+            <li class="item" > <a href="#i6">Liên Hệ</a> </li>
+          </ul> 
+          <section id="i4">
           <div class="actions">
             <div class="cart">
               <ion-icon name="cart-outline"></ion-icon>
@@ -57,7 +54,9 @@
         </div>
       </header>
       <content>
+      </section>
         <div class="container">
+          <section id="i5">
           <h1 class="title">Loại Trà Sữa Bán Chạy</h1>
           <ul id="list-common">
             <li class="item">
@@ -66,8 +65,7 @@
               </div>
               <div class="name">Trà Sữa Phô Mai Tươi</div>
               <p class="intro">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Corrupti corporis
+                Món trà sữa này có đặc trưng là vị ngậy béo hết sức hấp dẫn, đi kèm thạch phô mai ngọt ngào vui miệng.
               </p>
               <button class="book">Đặt Mua</button>
             </li>
@@ -77,8 +75,7 @@
               </div>
               <div class="name">Trà Sữa Ô Long</div>
               <p class="intro">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Corrupti corporis
+                Các loại ô long hồng trà, ô long rang có độ đậm đà cao hơn, tạo hậu vi mạnh mẽ, kết hợp với sữa vẫn rất nổi bật.
               </p>
               <button class="book">Đặt Mua</button>
             </li>
@@ -88,12 +85,13 @@
               </div>
               <div class="name">Trà Sữa Kim Cương Đen</div>
               <p class="intro">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Corrupti corporis
+                Trà sữa kim cương đen Okinawa với cái tên “sang chảnh” cùng hương vị thơm ngon tuyệt vời.
               </p>
               <button class="book">Đặt Mua</button>
             </li>
+          </section>
           </ul>
+          <section id="i3">
           <h1 class="title">Sản Phẩm Của Chúng Tôi</h1>
         </div>
         <div class="container">
@@ -282,14 +280,13 @@
           <div class="more">
             <a href="#">1</a>
             <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
+            
           </div>
         </div>
+      </section>
       </content>
       <footer>
+        <section id="i6">
         <div class="container">
           <div class="footer-box" id="about">
             <h2>VỀ CHÚNG TÔI</h2>
@@ -347,6 +344,7 @@
             </ul>
           </div>
         </div>
+      </section>
       </footer>
     </div>
     <script src="app.js"></script>
