@@ -485,3 +485,22 @@ footer .container .footer-box:nth-child(3) ul li form.error:before {
   width: 30px;
   height: 30px;
 }
+
+#time {
+  background: rgb(255, 166, 125);
+  padding: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  width: 300px;
+  margin: 30px auto;
+  border-radius: 15px;
+  font-family: Verdana;
+  position: absolute;
+  right: 30px;
+  top: 0%;
+}
+.banner {
+  position: relative;
+}
